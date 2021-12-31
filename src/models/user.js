@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const validator = require('validator')
+
 const User = mongoose.model('User',{
     name: {
         type: String,
@@ -43,3 +46,5 @@ const User = mongoose.model('User',{
 // }).catch((error)=>{
 //     console.log(error)
 // })
+
+module.exports = User

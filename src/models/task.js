@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 const Task = mongoose.model('Task',{
     description: {
         type: String,
@@ -16,3 +18,4 @@ const Task = mongoose.model('Task',{
 // }).catch((error)=>{
 //     console.log(error)
 // })
+module.exports = Task
