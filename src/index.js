@@ -7,6 +7,19 @@ const taskRouter = require('./routers/task')
 const app = express()
 const port = process.env.PORT || 3000
 
+// custom middleware to verify token
+// app.use((req,res,next)=>{
+//     if ( req.method === 'GET' ){
+//         res.send('Get requests are disabled')
+//     } else {
+//         next()
+//     }
+// })
+
+// app.use((req,res,next)=>{
+//     res.status(503).send('Site is currently down for maintenance')
+// })
+
 // automatically parse into an object so that we can use it in our handlers below
 app.use(express.json())
 app.use(userRouter)
@@ -16,15 +29,12 @@ app.listen(port,()=>{
     console.log('App is running on port ' + port);
 })
 
-// const bcrypt = require('bcrypt')
+// const jwt = require('jsonwebtoken')
 // const myFunction = async () => {
-//     const pass = 'nothing124324'
-//     const hashpass = await bcrypt.hash(pass, 8) 
+//     const token = jwt.sign({_id: 'abc123'},'anyseriesofcharacters',{expiresIn:'7 days'})
+//     console.log(token)
 
-//     console.log(pass)
-//     console.log(hashpass)
-
-//     const isMatch = await bcrypt.compare('nothing124324', hashpass)
-//     console.log(isMatch)
+//     const data = jwt.verify(token,'anyseriesofcharacters')
+//     console.log(data)
 // }
 // myFunction()
