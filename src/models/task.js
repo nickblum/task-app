@@ -9,24 +9,13 @@ const taskSchema = mongoose.Schema({
     completed: {
         type: Boolean,
         default: false
+    },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User' // "fk" to mongoose.model('User',userSchema)
     }
 })
 
-// middleware
-taskSchema.pre("save", async function(next){
-    ///const task = this
-
-    console.log('task saving middleware...')
-
-    next()
-})
-
 const Task = mongoose.model('Task',taskSchema)
-
-// const myTask = new Task({description: "Honor my family" })
-// myTask.save().then((result)=>{
-//     console.log(result)
-// }).catch((error)=>{
-//     console.log(error)
-// })
 module.exports = Task
