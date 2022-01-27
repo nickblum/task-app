@@ -111,3 +111,11 @@ test('Should not update valid user fields', async () => {
         .send({notafield:"Nope"})
         .expect(400)
 })
+
+//
+// Additional User Test Ideas
+//
+// Should not signup user with invalid name/email/password
+// Should not update user if unauthenticated
+// Should not update user with invalid name/email/password
+// Should not delete user if unauthenticated
